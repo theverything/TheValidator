@@ -1,22 +1,22 @@
 class TheValidator
   attr_accessor :name, :email
 
-  def initialize(attributes = {name: "", email: ""})
+  def initialize(attributes = {})
     @name = attributes[:name]
     @email = attributes[:email]
-    @errors = {name_err: "", email_err: ""}
+    @errors = {}
   end
 
   def validate_all
     case
     when validate_name? == true && validate_email? == true
-      return "All params are valid"
+      return { valid: true, form_params: { name: "#{@name}", email: "#{@email}" } }
     when validate_name? == true && validate_email? == false
-      return "#{@errors[:email_err]}"
+      return { valid: false, errors: @errors }
     when validate_name? == false && validate_email? == true
-      return "#{@errors[:name_err]}"
+      return { valid: false, errors: @errors }
     when validate_name? ==false && validate_email? == false
-      return "#{@errors[:name_err]}\n#{@errors[:email_err]}"
+      return { valid: false, errors: @errors }
     end
   end
 
