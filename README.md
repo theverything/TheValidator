@@ -23,7 +23,7 @@ If the params are not valid the the hash with be returned with the corresponding
 
 It is super basic right now and I am actively working on cleaning up the code and adding more validations.
 
-TO DO List
+To-Do List
 ----------
 
 * Add more validations (phone number, message, address)
