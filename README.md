@@ -19,7 +19,7 @@ If the params are valid then the returned hash will look like
 
 If the params are not valid the the hash with be returned with the corresponding errors and will look like
 
-    { :valid => false, :form_params => { :name_err => "Name is not valid", :email_err "Email is not valid" } }
+    { :valid => false, :form_params => { :name_err => "Name is not valid", :email_err => "Email is not valid" } }
 
 It is super basic right now and I am actively working on cleaning up the code and adding more validations.
 
