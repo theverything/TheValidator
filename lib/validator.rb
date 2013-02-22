@@ -1,21 +1,25 @@
 class TheValidator
-  attr_accessor :name, :email
+  attr_reader :name, :email
 
   def initialize(attributes = {})
-    @name = attributes[:name]
-    @email = attributes[:email]
+    @name = attributes[:name] || ""
+    @email = attributes[:email] || ""
     @errors = {}
   end
 
   def validate_all
-    case
-    when validate_name? == true && validate_email? == true
-      return { valid: true, form_params: { name: "#{@name}", email: "#{@email}" } }
-    when validate_name? == true && validate_email? == false
-      return { valid: false, errors: @errors }
-    when validate_name? == false && validate_email? == true
-      return { valid: false, errors: @errors }
-    when validate_name? ==false && validate_email? == false
+    validation_passed = true
+
+    validations = ['validate_name?', 'validate_email?']
+    validations.each do |validation_method_name|
+      if !self.send(validation_method_name.to_sym)
+        validation_passed = false
+      end
+    end
+
+    if validation_passed
+      return { valid: true, errors: @errors }
+    else
       return { valid: false, errors: @errors }
     end
   end
