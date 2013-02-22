@@ -1,9 +1,7 @@
 require 'minitest/spec'
 require 'minitest/autorun'
 
-
-$:.unshift File.expand_path(File.dirname(__FILE__) + '/..')
-require 'lib/validator'
+require_relative "../lib/validator"
 
 describe TheValidator do
   before do
