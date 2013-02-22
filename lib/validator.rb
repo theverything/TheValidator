@@ -42,7 +42,7 @@ class TheValidator
     when @email.empty?
       @errors[:email_err] = "Email is empty"
       return false
-    when @email.match(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i)
+    when @email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
       return true
     else
       @errors[:email_err] = "Email is not valid"
