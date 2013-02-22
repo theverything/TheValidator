@@ -27,11 +27,10 @@ class TheValidator
   end
 
   def validate_name?
-    case
-    when @name.empty?
+    if @name.empty?
       @errors[:name_err] = "Name is empty"
       return false
-    when @name.match(/\A[a-z ,.'-]+\z/i)
+    elsif @name.match(/\A[a-z ,.'-]+\z/i)
       return true
     else
       @errors[:name_err] = "Name is not valid"
@@ -40,11 +39,10 @@ class TheValidator
   end
 
   def validate_email?
-    case
-    when @email.empty?
+    if @email.empty?
       @errors[:email_err] = "Email is empty"
       return false
-    when @email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
+    elsif @email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
       return true
     else
       @errors[:email_err] = "Email is not valid"
@@ -69,6 +67,7 @@ class TheValidator
       return true
     else
       @errors[:phone_err] = "Phone number is not valid"
+      return false
     end
   end
 
