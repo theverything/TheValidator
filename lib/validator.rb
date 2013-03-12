@@ -22,54 +22,54 @@ module TheValidator
       end
 
       if validation_passed
-        return true
+        true
       else
-        return false
+        false
       end
     end
 
     def valid_name?
       if @name.empty?
         @errors << "Name is empty"
-        return false
+        false
       elsif @name.match(/\A[a-z ,.'-]+\z/i)
-        return true
+        true
       else
         @errors << "Name is not valid"
-        return false
+        false
       end
     end
 
     def valid_email?
       if @email.empty?
         @errors << "Email is empty"
-        return false
+        false
       elsif @email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
-        return true
+        true
       else
         @errors << "Email is not valid"
-        return false
+        false
       end
     end
 
     def valid_text?
       if @text.empty?
         @errors << "Text is empty"
-        return false
+        false
       else
-        return true
+        true
       end
     end
 
     def valid_phone?
       if @phone.empty?
         @errors << "Phone number is empty"
-        return false
+        false
       elsif @phone.match(/\A\+?\d?-?\(?\d{3}\)?-?\d{3}-?\d{4}\z/)
-        return true
+        true
       else
         @errors << "Phone number is not valid"
-        return false
+        false
       end
     end
 

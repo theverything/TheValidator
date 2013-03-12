@@ -14,9 +14,9 @@ module TheValidator
 
     def number_of_errors
       if @object.errors.size == 1
-        return "There is #{@object.errors.size} error" 
+        "There is #{@object.errors.size} error" 
       else
-        return "There are #{@object.errors.size} errors"
+        "There are #{@object.errors.size} errors"
       end
     end 
 
